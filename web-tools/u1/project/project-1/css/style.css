@@ -91,3 +91,13 @@ input[type=text] {
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome and Opera */
   }
+/* 
+#myCanvasVertical {
+    /* width: 280px;
+    height: 560px; 
+}
+
+#myCanvasHorizontal {
+    /* width: 560px;
+    height: 280px; 
+}  */
