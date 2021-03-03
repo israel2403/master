@@ -15,13 +15,14 @@
                 <p>Largo predeterminado: <span>5.6</span><br>
                     Ancho predeterminado: <span>2.8</span> 
                 </p>
-                <p>Largo <br>
-                <input type="text">
-                Ancho <br>
-                <input type="text">
-            </p>
+                <p>
+                    Largo <br>
+                    <input id="widthOne" type="text" placeholder="Solo números">
+                    Ancho <br>
+                    <input id="heightOne" type="text" placeholder="Solo números">
+                </p>
                 <br>
-                <button>Calcular</button>
+                <button type="button" onclick="mainEnable()">Calcular</button>
                 <p>Resultado</p>
                 <hr>
                 <p>
@@ -35,9 +36,9 @@
                         <th>Horizontal</th>
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>2</td>
+                        <td id="th1E">2</td>
+                        <td id="th2E">2</td>
+                        <td id="th3E">2</td>
                     </tr>
                 </table>
             </div>
@@ -45,15 +46,15 @@
                 <h3>Activado</h3>
             </div>
         </div>
-        <div id="disabled" class="brothers">
+        <div id="disabled" class="brothers noselect" oncontextmenu="return false;" oncopy="return false" oncut="return false">
             <div id="uno">
                 <p>Largo predeterminado:  <span>5.6</span><br>
                     Ancho predeterminado: <span>2.8</span>
                 </p>
                 <p>Largo <br>
-                <input type="text">
+                <input type="text" placeholder="Solo números">
                 Ancho <br>
-                <input type="text">
+                <input type="text" placeholder="Solo números">
             </p>
                 <br>
                 <button>Calcular</button>
@@ -81,5 +82,6 @@
             </div>
         </div>
     </div>
+    <script src="js/appEnable.js"></script>
 </body>
 </html>
