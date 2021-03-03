@@ -54,7 +54,8 @@ function figureDoesNotFitFigure() {
 }
 
 function putMathematicalResult() {
-    var mathematicResult = Math.trunc(globalArea / localArea);
+    var mathematicResult = Math.trunc(globalArea / localArea.toFixed(2));
+    console.log(mathematicResult);
     th1E.style.color = "green";
     th1E.innerHTML = mathematicResult;
 }
@@ -66,7 +67,7 @@ function createCanvas(canvas, x, y) {
     return canvas;
 }
 
-function paintHorizontal(localWidth, localHeight, x, y, canvas, td) {
+function paintRect(localWidth, localHeight, x, y, canvas, td) {
     localWidth *= 100;
     localHeight *= 100;
     x *= 100;
@@ -111,10 +112,13 @@ function mainEnable() {
     if (isItFitArea(localWidth, localHeight) == false) {
         figureDoesNotFitArea();
     } else {
+        console.log(localArea);
         putMathematicalResult();
         // Verify if the new figure fit with the global one.
         if (isItFitFigure(localWidth, localHeight) == true) {
-            paintHorizontal(localWidth, localHeight, globalWidth, globalHeight, myCanvasHorizontal, th2E);
+            // Paint Horizontal
+            paintRect(localWidth, localHeight, globalWidth, globalHeight, myCanvasHorizontal, th2E);
+            // Paint Vertical
         }
     }
 
