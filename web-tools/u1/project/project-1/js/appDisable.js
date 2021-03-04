@@ -16,11 +16,11 @@ function isItFitFigure(width, height, x, y) {
 }
 
 function getWidthOne() {
-    return parseFloat(document.getElementById("widthOne").value);
+    return parseFloat(document.getElementById("widthTwo").value);
 }
 
 function getHeightOne() {
-    return parseFloat(document.getElementById("heightOne").value);
+    return parseFloat(document.getElementById("heightTwo").value);
 }
 
 
@@ -31,9 +31,9 @@ function isItFitArea(localWidth, localHeight) {
 }
 
 function init() {
-    th1E = document.getElementById("th1E");
-    th2E = document.getElementById("th2E");
-    th3E = document.getElementById("th3E");
+    th1E = document.getElementById("th1D");
+    th2E = document.getElementById("th2D");
+    th3E = document.getElementById("th3D");
     myCanvasHorizontal = document.getElementById("myCanvasHorizontal");
     myCanvasVertical = document.getElementById("myCanvasVertical");
 }
@@ -110,7 +110,7 @@ function paintRect(localWidth, localHeight, x, y, canvas, td, limitWidth, limitH
     td.style.color = "green";
 }
 
-function mainEnable() {
+function mainDisable() {
     // init 
     init();
     //Init localWidth & localHeight
