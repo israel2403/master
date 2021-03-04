@@ -115,7 +115,9 @@ function mainEnable() {
     init("th1E", "th2E","th3E");
     //Init localWidth & localHeight
     var localWidth = getWidthOne("widthOne");
+    if (isNaN(localWidth)) alert("El Largo debe de ser un número");
     var localHeight = getHeightOne("heightOne");
+    if (isNaN(localHeight)) alert("El Ancho debe de ser un número");
     // Verify if the local figure area fit on the global one
     if (isItFitArea(localWidth, localHeight) == false) {
         figureDoesNotFitArea();
@@ -136,7 +138,9 @@ function mainDisable() {
     init("th1D", "th2D","th3D");
     //Init localWidth & localHeight
     var localWidth = getWidthOne("widthTwo");
+    if (isNaN(localWidth)) alert("El Largo debe de ser un número");
     var localHeight = getHeightOne("heightTwo");
+    if (isNaN(localHeight)) alert("El Ancho debe de ser un número");
     // Verify if the local figure area fit on the global one
     if (isItFitArea(localWidth, localHeight) == false) {
         figureDoesNotFitArea();
