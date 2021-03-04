@@ -15,12 +15,12 @@ function isItFitFigure(width, height, x, y) {
     else return false;
 }
 
-function getWidthOne() {
-    return parseFloat(document.getElementById("widthOne").value);
+function getWidthOne(id) {
+    return parseFloat(document.getElementById(id).value);
 }
 
-function getHeightOne() {
-    return parseFloat(document.getElementById("heightOne").value);
+function getHeightOne(id) {
+    return parseFloat(document.getElementById(id).value);
 }
 
 
@@ -30,10 +30,10 @@ function isItFitArea(localWidth, localHeight) {
     else return false;
 }
 
-function init() {
-    th1E = document.getElementById("th1E");
-    th2E = document.getElementById("th2E");
-    th3E = document.getElementById("th3E");
+function init(td1, td2, td3) {
+    th1E = document.getElementById(td1);
+    th2E = document.getElementById(td2);
+    th3E = document.getElementById(td3);
     myCanvasHorizontal = document.getElementById("myCanvasHorizontal");
     myCanvasVertical = document.getElementById("myCanvasVertical");
 }
@@ -112,10 +112,10 @@ function paintRect(localWidth, localHeight, x, y, canvas, td, limitWidth, limitH
 
 function mainEnable() {
     // init 
-    init();
+    init("th1E", "th2E","th3E");
     //Init localWidth & localHeight
-    var localWidth = getWidthOne();
-    var localHeight = getHeightOne();
+    var localWidth = getWidthOne("widthOne");
+    var localHeight = getHeightOne("heightOne");
     // Verify if the local figure area fit on the global one
     if (isItFitArea(localWidth, localHeight) == false) {
         figureDoesNotFitArea();
@@ -129,5 +129,27 @@ function mainEnable() {
             Math.trunc((globalHeight * 100)/(localWidth* 100)), Math.trunc((globalWidth * 100)/(localHeight * 100)));
         
     }
-
 }
+
+function mainDisable() {
+    // init 
+    init("th1D", "th2D","th3D");
+    //Init localWidth & localHeight
+    var localWidth = getWidthOne("widthTwo");
+    var localHeight = getHeightOne("heightTwo");
+    // Verify if the local figure area fit on the global one
+    if (isItFitArea(localWidth, localHeight) == false) {
+        figureDoesNotFitArea();
+    } else {
+        console.log(localArea);
+        putMathematicalResult();
+        // Verify if the new figure fit with the global one.
+        paintRect(localWidth, localHeight, globalWidth, globalHeight, myCanvasHorizontal, th2E,  
+        Math.trunc((globalWidth * 100)/(localWidth * 100)), Math.trunc((globalHeight * 100)/(localHeight* 100)));
+        paintRect(localWidth, localHeight, globalHeight, globalWidth, myCanvasVertical, th3E,
+            Math.trunc((globalHeight * 100)/(localWidth* 100)), Math.trunc((globalWidth * 100)/(localHeight * 100)));
+        
+    }
+}
+
+
