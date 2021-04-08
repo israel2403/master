@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use Exception;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    /**
+     * @var studentService
+     */
+    protected $studentService;
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +41,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only([
+            'name',
+            'firstSurname',
+            'secondSurname'
+        ]);
+
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->studentService->savePostData($data);
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'error' => $e->getMessage()
+            ];
+        }
+
+        return response()->json($result, $result['status']);
     }
 
     /**
